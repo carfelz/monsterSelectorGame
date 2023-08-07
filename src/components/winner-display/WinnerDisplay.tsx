@@ -1,13 +1,13 @@
 import { WinnerDisplayContainer, WinnerText } from "./WinnerDisplay.styled"
 
-type Props = {
+type WinnerDisplayProps = {
     text: string;
 }
 
-const WinnerDisplay: React.FC<Props> = ({ text }) => (
-    <WinnerDisplayContainer>
-        <WinnerText>{text} wins!</WinnerText>
+const WinnerDisplay: React.FC<WinnerDisplayProps> = ({ text }) => (
+    <WinnerDisplayContainer data-testid = "winner-display" >
+        <WinnerText>{text}</WinnerText>
     </WinnerDisplayContainer>
 )
 
-export { WinnerDisplay }
+export { WinnerDisplay, type WinnerDisplayProps }

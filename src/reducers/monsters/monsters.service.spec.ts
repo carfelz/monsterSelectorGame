@@ -18,4 +18,16 @@ describe('Monsters Service', () => {
       monstersData.monsters[1],
     ]);
   });
+
+  it('should return the winner of the battle', async (): Promise<void> => {
+    jest
+      .spyOn(MonsterService, 'postBattle')
+      .mockResolvedValue({winner: {...monstersData.monsters[0]}, tie: false})
+    
+    const response = await MonsterService.postBattle({ monster1Id: '0', monster2Id: '1'})
+
+    expect(response).toEqual(
+      {winner: {...monstersData.monsters[0]}, tie: false}
+    )
+  })
 });
